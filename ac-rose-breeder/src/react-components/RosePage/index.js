@@ -131,53 +131,53 @@ class RosePage extends React.Component {
 
     // updates the possible roses in state given the genes of the parent roses
     updatePossible = () => {
-        let min_r, max_r, min_y, max_y, min_w, max_w, min_s, max_s;
+        let minR, maxR, minY, maxY, minW, maxW, minS, maxS;
         let newPossible = [];
 
         //finds range of r genes
 		if (this.state.genes[0][0] === 1 && this.state.genes[1][0] === 1){
-			min_r = 0;
-			max_r = 2;
+			minR = 0;
+			maxR = 2;
 		}
 		else{
-			min_r = Math.trunc((this.state.genes[0][0] + this.state.genes[1][0]) / 2);
-			max_r = (this.state.genes[0][0] + this.state.genes[1][0]) % 2 ? min_r + 1 : min_r;
+			minR = Math.trunc((this.state.genes[0][0] + this.state.genes[1][0]) / 2);
+			maxR = (this.state.genes[0][0] + this.state.genes[1][0]) % 2 ? minR + 1 : minR;
 		}
 		
 		//finds range of y genes
 		if (this.state.genes[0][1] === 1 && this.state.genes[1][1] === 1){
-			min_y = 0;
-			max_y = 2;
+			minY = 0;
+			maxY = 2;
 		}
 		else{
-			min_y = Math.trunc((this.state.genes[0][1] + this.state.genes[1][1]) / 2);
-			max_y = (this.state.genes[0][1] + this.state.genes[1][1]) % 2 ? min_y + 1 : min_y;
+			minY = Math.trunc((this.state.genes[0][1] + this.state.genes[1][1]) / 2);
+			maxY = (this.state.genes[0][1] + this.state.genes[1][1]) % 2 ? minY + 1 : minY;
 		}
 		
 		//finds range of w genes
 		if (this.state.genes[0][2] === 1 && this.state.genes[1][2] === 1){
-			min_w = 0;
-			max_w = 2;
+			minW = 0;
+			maxW = 2;
 		}
 		else{
-			min_w = Math.trunc((this.state.genes[0][2] + this.state.genes[1][2]) / 2);
-			max_w = (this.state.genes[0][2] + this.state.genes[1][2]) % 2 ? min_w + 1 : min_w;
+			minW = Math.trunc((this.state.genes[0][2] + this.state.genes[1][2]) / 2);
+			maxW = (this.state.genes[0][2] + this.state.genes[1][2]) % 2 ? minW + 1 : minW;
 		}
 		
 		//finds range of s genes
 		if (this.state.genes[0][3] === 1 && this.state.genes[1][3] === 1){
-			min_s = 0;
-			max_s = 2;
+			minS = 0;
+			maxS = 2;
 		}
 		else{
-			min_s = Math.trunc((this.state.genes[0][3] + this.state.genes[1][3]) / 2);
-			max_s = (this.state.genes[0][3] + this.state.genes[1][3]) % 2 ? min_s + 1 : min_s;
+			minS = Math.trunc((this.state.genes[0][3] + this.state.genes[1][3]) / 2);
+			maxS = (this.state.genes[0][3] + this.state.genes[1][3]) % 2 ? minS + 1 : minS;
 		}
-        for (let i = min_r; i <= max_r; i++){
-			for (let  j = min_y; j <= max_y; j++){
-				for (let  k = min_w; k <= max_w; k++){
-					for (let l = min_s; l <= max_s; l++){
-						let idx = 27 * i + 9 * j + k * 3 + l;
+        for (let i = minR; i <= maxR; i++){
+			for (let  j = minY; j <= maxY; j++){
+				for (let  k = minW; k <= maxW; k++){
+					for (let l = minS; l <= maxS; l++){
+						let idx = (27 * i) + (9 * j) + (3 * k) + l;
                         newPossible.push(idx);
                     }
                 }

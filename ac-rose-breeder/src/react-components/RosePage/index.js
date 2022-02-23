@@ -119,6 +119,18 @@ class RosePage extends React.Component {
         };
     }
 
+    // gets parent 1 given current genes
+    getParent1 = () => {
+        let idx = (27 * this.state.genes[0][0]) + (9 * this.state.genes[0][1]) + (3 * this.state.genes[0][2]) + this.state.genes[0][3];
+        return roseList[idx];
+    }
+
+    // gets parent 2 given current genes
+    getParent2 = () => {
+        let idx = (27 * this.state.genes[1][0]) + (9 * this.state.genes[1][1]) + (3 * this.state.genes[1][2]) + this.state.genes[1][3];
+        return roseList[idx];
+    }
+    
     // function for setting genes in state, used by GeneInput onChange
     setGene = (roseNum, geneNum, gene) => {
         let tempGenes = this.state.genes;
@@ -199,17 +211,23 @@ class RosePage extends React.Component {
             <Grid container justifyContent="center" sx={{ my: 3 }}>
                 <Grid container xs={4}></Grid>
                 <Grid container xs={2} justifyContent="center">
-                    <Typography variant="h5" sx={{ my: 3 }}>
+                    <Typography variant="h5" sx={{ my: 1 }}>
                         Parent 1
                     </Typography>
+                    <Grid container justifyContent="space-evenly">
+                        <Typography variant="h6" sx={{ my: 1 }}>{this.getParent1().colour}</Typography>
+                    </Grid>
                     <Grid container justifyContent="space-evenly">
                         {range(4).map((number) => <GeneInput setGene={this.setGene} roseNum={0} number={number}></GeneInput>)}
                     </Grid>
                 </Grid>
                 <Grid container xs={2} justifyContent="center">
-                    <Typography variant="h5" sx={{ my: 3 }}>
+                    <Typography variant="h5" sx={{ my: 1 }}>
                         Parent 2
                     </Typography>
+                    <Grid container justifyContent="space-evenly">
+                        <Typography variant="h6" sx={{ my: 1 }}>{this.getParent2().colour}</Typography>
+                    </Grid>
                     <Grid container justifyContent="space-evenly">
                         {range(4).map((number) => <GeneInput setGene={this.setGene} roseNum={1} number={number}></GeneInput>)}
                     </Grid>

@@ -29,6 +29,7 @@ class GeneInput extends React.Component {
             size="small"
             onChange={this.handleChange}
             defaultValue={0}
+            sx={{maxWidth: "75px"}}
           />);
     }
 }

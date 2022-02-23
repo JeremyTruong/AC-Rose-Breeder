@@ -209,30 +209,30 @@ class RosePage extends React.Component {
             </Grid>
 
             <Grid container justifyContent="center" sx={{ my: 3 }}>
-                <Grid container xs={4}></Grid>
-                <Grid container xs={2} justifyContent="center">
-                    <Typography variant="h5" sx={{ my: 1 }}>
+                <Grid container xs={3}></Grid>
+                <Grid container xs={3} justifyContent="center">
+                    <Typography variant="h4" sx={{ mt: 1 }}>
                         Parent 1
                     </Typography>
                     <Grid container justifyContent="space-evenly">
                         <Typography variant="h6" sx={{ my: 1 }}>{this.getParent1().colour}</Typography>
                     </Grid>
-                    <Grid container justifyContent="space-evenly">
-                        {range(4).map((number) => <GeneInput setGene={this.setGene} roseNum={0} number={number}></GeneInput>)}
+                    <Grid container justifyContent="center" spacing={1}>
+                        {range(4).map((number) => <Grid item><GeneInput setGene={this.setGene} roseNum={0} number={number}></GeneInput></Grid>)}
                     </Grid>
                 </Grid>
-                <Grid container xs={2} justifyContent="center">
-                    <Typography variant="h5" sx={{ my: 1 }}>
+                <Grid container xs={3} justifyContent="center">
+                    <Typography variant="h4" sx={{ mt: 1 }}>
                         Parent 2
                     </Typography>
                     <Grid container justifyContent="space-evenly">
                         <Typography variant="h6" sx={{ my: 1 }}>{this.getParent2().colour}</Typography>
                     </Grid>
-                    <Grid container justifyContent="space-evenly">
-                        {range(4).map((number) => <GeneInput setGene={this.setGene} roseNum={1} number={number}></GeneInput>)}
+                    <Grid container justifyContent="center" spacing={1}>
+                        {range(4).map((number) => <Grid item><GeneInput setGene={this.setGene} roseNum={1} number={number}></GeneInput></Grid>)}
                     </Grid>
                 </Grid>
-                <Grid container xs={4}></Grid>
+                <Grid container xs={3}></Grid>
                 <Grid container justifyContent="center">
                     <Typography variant="h4" sx={{ mt: 7, mb: 2}}>
                         All Possible Rose Offspring
